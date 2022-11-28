@@ -1,10 +1,9 @@
 <template>
-    <div>
+    <div class="allPosts">
         <div v-for="item in blogData" :key="item.id">
             <div class="post">
-                <h1>{{item["title"]}}</h1>
-                <p>{{item["content"]}}</p>
-                {{item}}
+                    <h2>{{item["title"]}}</h2>
+                    <p>{{item["content"]}}</p>
             </div>
         </div>
     </div>
@@ -22,6 +21,7 @@
         methods: {
             show() {
                 this.isActive = !this.isActive
+                console.log("aba")
             },
         },
         mounted() {
@@ -33,22 +33,35 @@
     }
 </script>
 
-<style scoped>
+<style>
+
+:root{
+    --postPadding:15px;
+}
+
+.allPosts{
+    display: flex;
+    width: 1fr;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .post{
+    width: 600px;
+    height: 125px;
+    margin-top: 12px;
+    margin-bottom: 12px;
     border: 1px black solid;
-    width: 25vw;
-    padding: 15px;
+    padding: var(--postPadding);
+    transition: 0.35s;
 }
 
-.post:active{
-    background-color: red;
+.post > p{
+    color: rgb(114, 114, 114);
 }
-
-.active{
-    background-color: aqua;
-}
-
-.post:focus{
-    background-color: red;
+.post:hover{
+    padding: calc(var(--postPadding) + 7px);
+    font-size: 115%;
 }
 </style>
