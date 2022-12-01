@@ -1,16 +1,12 @@
 <template>
-    <div class="container">
-        <a class="goBack" href="index.html">Go to Posts</a>
-
+        <!-- <a class="goBack" href="index.html">Go to Posts</a> -->
         <div class="form">
             <label for="title">Title:</label>
             <input v-model="postBody['title']" id="title" name="title" type="text">
             <label for="content">Content:</label>
             <input v-model="postBody['content']" id="content" name="content" type="text">
         </div>
-
         <button class="sendButton" @click="createPost">Publish Post!</button>
-    </div>
 
 </template>
 
